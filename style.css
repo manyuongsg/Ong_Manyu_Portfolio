@@ -624,7 +624,19 @@ section.alt { background: var(--bg-surface); }
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .edu-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 0 16px rgba(184,169,255,0.1); }
-.edu-icon { font-size: 1.4rem; flex-shrink: 0; }
+.edu-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  border: 1px solid rgba(184,169,255,0.22);
+  border-radius: 10px;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
 .edu-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem; line-height: 1.35; font-family: 'Rajdhani', sans-serif; letter-spacing: 0.02em; }
 .edu-org { color: var(--accent); font-size: 0.82rem; font-family: 'Rajdhani', sans-serif; font-weight: 600; }
 .edu-date { color: var(--text-dim); font-size: 0.62rem; margin-top: 0.15rem; font-family: 'Orbitron', sans-serif; letter-spacing: 0.04em; }
