@@ -1,143 +1,115 @@
 /* =============================================
-   TYPED HERO TEXT
+   NAV — active page highlight
 ============================================= */
-const phrases = [
-  'Data Analyst',
-  'Python & SQL Developer',
-  'Power BI Specialist',
-  'Policy & Data Translator',
-];
-
-let phraseIndex = 0;
-let charIndex = 0;
-let deleting = false;
-const typedEl = document.getElementById('typed');
-
-function type() {
-  const current = phrases[phraseIndex];
-  if (deleting) {
-    typedEl.textContent = current.slice(0, charIndex--);
-    if (charIndex < 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      setTimeout(type, 400);
-      return;
+(function () {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === path || (path === '' && href === 'index.html')) {
+      a.classList.add('active');
     }
-  } else {
-    typedEl.textContent = current.slice(0, charIndex++);
-    if (charIndex > current.length) {
-      deleting = true;
-      setTimeout(type, 1800);
-      return;
-    }
-  }
-  setTimeout(type, deleting ? 60 : 90);
+  });
+})();
+
+/* =============================================
+   NAV — scroll tint + hamburger
+============================================= */
+const navbar  = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.querySelector('.nav-links');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    })
+  );
 }
 
-type();
-
 /* =============================================
-   FOOTER YEAR
+   TYPED TEXT (hero only)
 ============================================= */
-const yearEl = document.getElementById('footer-year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+const typedEl = document.getElementById('typed');
+if (typedEl) {
+  const phrases = [
+    'Data Analyst',
+    'Python & SQL Developer',
+    'Power BI Specialist',
+    'Policy & Data Translator',
+  ];
+  let pi = 0, ci = 0, deleting = false;
 
-/* =============================================
-   NAVBAR SCROLL SHRINK
-============================================= */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.style.background = window.scrollY > 40
-    ? 'rgba(13,17,23,0.97)'
-    : 'rgba(13,17,23,0.85)';
-});
-
-/* =============================================
-   HAMBURGER MENU
-============================================= */
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('open');
-});
-
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
-  });
-});
-
-/* =============================================
-   ACTIVE NAV LINK ON SCROLL
-============================================= */
-const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
-
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navAnchors.forEach(a => a.classList.remove('active'));
-      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-      if (active) active.classList.add('active');
+  function type() {
+    const cur = phrases[pi];
+    typedEl.textContent = cur.slice(0, ci);
+    if (!deleting) {
+      if (ci++ >= cur.length) { deleting = true; setTimeout(type, 1800); return; }
+    } else {
+      if (ci-- <= 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 380); return; }
     }
-  });
-}, { rootMargin: '-50% 0px -50% 0px', threshold: 0 });
+    setTimeout(type, deleting ? 55 : 85);
+  }
+  type();
+}
 
-sections.forEach(s => sectionObserver.observe(s));
+/* =============================================
+   STAT COUNTERS (hero only)
+============================================= */
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+  const statsObserver = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    statsObserver.disconnect();
+
+    heroStats.querySelectorAll('.stat-num[data-target]').forEach(el => {
+      const target = +el.dataset.target;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const t0 = performance.now();
+      const dur = 1400;
+
+      (function tick(now) {
+        const p = Math.min((now - t0) / dur, 1);
+        const v = Math.round((1 - Math.pow(1 - p, 3)) * target);
+        el.textContent = prefix + v + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, { threshold: 0.6 });
+  statsObserver.observe(heroStats);
+}
 
 /* =============================================
    SCROLL REVEAL
 ============================================= */
 const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
     }
   });
 }, { threshold: 0.08 });
 
 document.querySelectorAll(
-  '.info-card, .skill-group, .project-card, .timeline-item, .edu-card, .contact-card'
+  '.info-card, .skill-group, .project-card, .timeline-item, .edu-card, .contact-card, .contact-cta'
 ).forEach((el, i) => {
   el.classList.add('reveal');
-  el.style.transitionDelay = `${(i % 4) * 80}ms`;
+  el.style.transitionDelay = `${(i % 5) * 70}ms`;
   revealObserver.observe(el);
 });
 
 /* =============================================
-   STAT COUNTER ANIMATION
+   FOOTER YEAR
 ============================================= */
-function animateCounter(el, target, prefix, suffix) {
-  const duration = 1500;
-  const start = performance.now();
-  const step = (now) => {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-    const value = Math.round(eased * target);
-    el.textContent = prefix + value + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-const statsObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.stat-num[data-target]').forEach(el => {
-        const target = parseInt(el.dataset.target, 10);
-        const prefix = el.classList.contains('stat-dollar') ? 'S$' : '';
-        const suffix = el.classList.contains('stat-dollar') ? 'M' : '+';
-        animateCounter(el, target, prefix, suffix);
-        delete el.dataset.target; // run once
-      });
-      statsObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-const heroStats = document.querySelector('.hero-stats');
-if (heroStats) statsObserver.observe(heroStats);
+const yr = document.getElementById('footer-year');
+if (yr) yr.textContent = new Date().getFullYear();

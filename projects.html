@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Ong Manyu</title>
+  <meta name="description" content="Data analytics projects by Ong Manyu — ML, SQL, Power BI, Python." />
+  <meta name="theme-color" content="#0e0b06" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">OM</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="Ong_Manyu_Resume.pdf" target="_blank" rel="noopener" class="btn-nav-ghost">Resume</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div>
+        <p class="page-tag">Portfolio</p>
+        <h1>Projects</h1>
+        <p>Data analytics work from bootcamp &amp; independent research.</p>
+      </div>
+      <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="btn btn-outline" style="align-self:flex-end;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        All repos
+      </a>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <main>
+    <div class="container">
+      <div class="projects-grid">
+
+        <!-- CAPSTONE -->
+        <div class="project-card featured">
+          <div class="project-badge">⭐ Capstone</div>
+          <div class="project-meta">
+            <h3>Early Warning System — Domestic Violence Risk Predictor</h3>
+            <span class="project-date">Apr 2026</span>
+          </div>
+          <p class="project-desc">
+            <strong>MSF FamilyGuard</strong> — an ML risk triage tool for the Ministry of Social &amp; Family Development.
+            Enables social workers to triage a referral in under 30 seconds.
+          </p>
+          <div class="project-metric">
+            <span class="metric-pill">97% Recall</span>
+            <span class="metric-pill">0.85 ROC-AUC</span>
+            <span class="metric-pill">2,000 cases</span>
+            <span class="metric-pill">4 archetypes</span>
+          </div>
+          <ul class="project-highlights" style="list-style:disc;padding-left:1.1rem;display:flex;flex-direction:column;gap:0.3rem;">
+            <li style="color:var(--text-muted);font-size:0.855rem;">Engineered Ecological Risk Index, Gender Power Imbalance Flag, Recidivism Risk Score</li>
+            <li style="color:var(--text-muted);font-size:0.855rem;">Clustered families into 4 intervention archetypes mapped to MSF partner agencies</li>
+            <li style="color:var(--text-muted);font-size:0.855rem;">Live demo presented to panel — bridged model methodology &amp; policy for non-technical audience</li>
+          </ul>
+          <div class="project-stack">
+            <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>Machine Learning</span><span>Clustering</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- HDB -->
+        <div class="project-card">
+          <div class="project-meta">
+            <h3>HDB Resale Pricing Predictor &amp; Town Recommender</h3>
+            <span class="project-date">Mar 2026</span>
+          </div>
+          <p class="project-desc">
+            Price prediction model + interactive town recommender matching buyers by lifestyle, budget &amp; commute.
+          </p>
+          <div class="project-metric">
+            <span class="metric-pill">270k transactions</span>
+            <span class="metric-pill">2012–2025</span>
+          </div>
+          <div class="project-stack">
+            <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Clustering</span><span>SQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- ELECTION -->
+        <div class="project-card">
+          <div class="project-meta">
+            <h3>Singapore Election Analysis</h3>
+            <span class="project-date">Feb 2026</span>
+          </div>
+          <p class="project-desc">
+            Longitudinal study of opposition growth across 14 General Elections using demographic correlation &amp; Power BI.
+          </p>
+          <div class="project-metric">
+            <span class="metric-pill">14 elections</span>
+            <span class="metric-pill">1968–2025</span>
+          </div>
+          <div class="project-stack">
+            <span>Power BI</span><span>Python</span><span>Demographic Analysis</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- PAY GAP -->
+        <div class="project-card">
+          <div class="project-meta">
+            <h3>UK Gender Pay Gap Analysis</h3>
+            <span class="project-date">Jan 2026</span>
+          </div>
+          <p class="project-desc">
+            SQL analysis of 82,935 employer submissions. Identified 16.8% median gap and industry disparities in Aviation &amp; Education.
+          </p>
+          <div class="project-metric">
+            <span class="metric-pill">82,935 employers</span>
+            <span class="metric-pill">16.8% gap</span>
+          </div>
+          <div class="project-stack">
+            <span>SQL</span><span>Policy Evaluation</span><span>Data Analysis</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Ong Manyu &nbsp;·&nbsp;
+      <a href="https://github.com/manyuongsg" target="_blank" rel="noopener">github.com/manyuongsg</a>
+      &nbsp;·&nbsp; <span id="footer-year"></span>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
