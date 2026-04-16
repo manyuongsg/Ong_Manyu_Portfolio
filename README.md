@@ -1,4 +1,4 @@
-# Kham Ming Fatt - Data Analyst / Data Scientist
+# Ong Manyu - Data Analyst / Data Scientist
 
 Welcome to my personal portfolio webpage! This site was developed using HTML and CSS to showcase my work, experiences, and skills as a Data Analyst and Data Scientist.
 
