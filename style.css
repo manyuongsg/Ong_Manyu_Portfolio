@@ -296,27 +296,49 @@ ul { list-style: none; }
   text-shadow: 0 0 16px rgba(184,169,255,0.5);
 }
 
+/* Orbit container — positioned at ring centre, transform rotates out to orbit radius */
 .floating-tag {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Each tag's transform places it on the ring perimeter via:
+     translate(-50%,-50%) centres the element on the ring centre,
+     rotate(A) translateY(-R) moves it R px outward at angle A,
+     rotate(-A) keeps text upright. */
+  pointer-events: none; /* let the inner code handle clicks if needed */
+}
+/* The visual pill + float animation lives on the inner <code> */
+.floating-tag code {
+  display: block;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.3rem 0.7rem;
-  font-size: 0.72rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
   color: var(--accent);
-  animation: float 4s ease-in-out infinite;
   white-space: nowrap;
   box-shadow: 0 0 10px rgba(184,169,255,0.1);
+  animation: float 4s ease-in-out infinite;
+  pointer-events: auto;
 }
-.floating-tag code { font-family: 'Orbitron', sans-serif; font-size: 0.65rem; letter-spacing: 0.06em; }
-.tag-1 { top: 8%;   left: -8%;  animation-delay: 0s; }
-.tag-2 { top: 22%;  right: -4%; animation-delay: 0.7s; }
-.tag-3 { bottom: 22%; left: -14%; animation-delay: 1.5s; }
-.tag-4 { bottom: 8%;  right: -6%; animation-delay: 2.2s; }
+/* 5 tags at 72° intervals around ring (radius 130 px from ring centre) */
+.tag-1 { transform: translate(-50%,-50%) rotate(0deg)   translateY(-130px) rotate(0deg);   }
+.tag-2 { transform: translate(-50%,-50%) rotate(72deg)  translateY(-130px) rotate(-72deg);  }
+.tag-3 { transform: translate(-50%,-50%) rotate(144deg) translateY(-130px) rotate(-144deg); }
+.tag-4 { transform: translate(-50%,-50%) rotate(216deg) translateY(-130px) rotate(-216deg); }
+.tag-5 { transform: translate(-50%,-50%) rotate(288deg) translateY(-130px) rotate(-288deg); }
+/* Stagger float animation per tag */
+.tag-1 code { animation-delay: 0s;   }
+.tag-2 code { animation-delay: 0.7s; }
+.tag-3 code { animation-delay: 1.5s; }
+.tag-4 code { animation-delay: 2.2s; }
+.tag-5 code { animation-delay: 3.0s; }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-9px); }
+  50%       { transform: translateY(-8px); }
 }
 
 /* =============================================
