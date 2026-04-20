@@ -109,16 +109,6 @@ document.querySelectorAll(
 });
 
 /* =============================================
-   DEMO EMBED — auto-hide placeholder when src is set
-============================================= */
-document.querySelectorAll('.demo-frame').forEach(frame => {
-  const src = frame.getAttribute('src');
-  if (src && src !== 'about:blank' && src.trim() !== '') {
-    frame.closest('.demo-frame-wrapper').classList.add('has-src');
-  }
-});
-
-/* =============================================
    FOOTER YEAR
 ============================================= */
 const yr = document.getElementById('footer-year');

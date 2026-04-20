@@ -571,54 +571,76 @@ section.alt { background: var(--bg-surface); }
   align-items: center;
   gap: 0.4rem;
 }
-.demo-frame-wrapper {
+.demo-preview {
   position: relative;
   width: 100%;
+  min-height: 300px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(184,169,255,0.25);
-  background: rgba(14,11,6,0.6);
-  min-height: 420px;
+  background: rgba(14,11,6,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.demo-frame {
+.demo-screenshot {
   width: 100%;
-  height: 420px;
-  border: none;
-  display: block;
-}
-.demo-placeholder {
+  height: 100%;
+  object-fit: cover;
   position: absolute;
   inset: 0;
+  display: block;
+  filter: brightness(0.45) saturate(0.7);
+  transition: filter 0.3s ease;
+}
+.demo-preview:hover .demo-screenshot {
+  filter: brightness(0.35) saturate(0.6);
+}
+.demo-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 2rem;
+}
+.demo-overlay-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   text-align: center;
-  padding: 2rem;
-  color: var(--text-muted);
 }
-.demo-placeholder i {
-  font-size: 2.5rem;
-  color: rgba(184,169,255,0.3);
-  margin-bottom: 0.5rem;
-}
-.demo-placeholder p {
-  font-size: 0.85rem;
-  max-width: 340px;
-  line-height: 1.6;
-}
-.demo-placeholder code {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+.demo-play-icon {
+  font-size: 3.5rem;
   color: var(--accent);
-  background: rgba(184,169,255,0.1);
-  padding: 0.1em 0.3em;
-  border-radius: 4px;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 18px rgba(184,169,255,0.5));
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
-/* Hide placeholder once iframe has a real src */
-.demo-frame-wrapper.has-src .demo-placeholder { display: none; }
-.demo-frame-wrapper.has-src .demo-frame { min-height: 420px; }
+.demo-preview:hover .demo-play-icon {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 28px rgba(184,169,255,0.75));
+}
+.demo-overlay-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.demo-overlay-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.demo-launch-btn {
+  font-size: 0.82rem;
+  padding: 0.45rem 1.2rem;
+}
 
 /* =============================================
    TIMELINE

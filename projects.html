@@ -75,20 +75,32 @@
           <!-- DEMO EMBED -->
           <div class="demo-embed">
             <p class="demo-label"><i class="fa-solid fa-play-circle"></i> App Demo</p>
-            <div class="demo-frame-wrapper">
-              <!-- Replace the src below with your live app URL (Streamlit, Tableau Public, etc.) -->
-              <!-- Example: src="https://your-app.streamlit.app/?embed=true" -->
-              <iframe
-                class="demo-frame"
-                src="https://triage-predictor.streamlit.app/?embed=true"
-                title="MSF FamilyGuard App Demo"
-                allowfullscreen
-                loading="lazy">
-              </iframe>
-              <div class="demo-placeholder">
-                <i class="fa-solid fa-display"></i>
-                <p>Paste your demo URL into the <code>src</code> attribute above to embed your live app here.</p>
-                <a href="https://github.com/manyuongsg" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:0.78rem;margin-top:0.75rem;">View on GitHub instead</a>
+            <!--
+              HOW TO USE:
+              1. Take a screenshot of your Streamlit app and save it (e.g. demo-screenshot.png) in this folder.
+              2. Set data-app-url below to your Streamlit app URL.
+              3. Set the <img> src to your screenshot file.
+            -->
+            <div class="demo-preview"
+                 data-app-url="https://triage-predictor.streamlit.app/">
+              <!-- Replace src with your actual screenshot, e.g. src="demo-screenshot.png" -->
+              <img
+                class="demo-screenshot"
+                src="assets/triage-predictor-screenshot.png"
+                alt="MSF FamilyGuard app screenshot"
+                onerror="this.style.display='none'"
+              />
+              <div class="demo-overlay">
+                <div class="demo-overlay-inner">
+                  <i class="fa-solid fa-circle-play demo-play-icon"></i>
+                  <p class="demo-overlay-title">MSF FamilyGuard</p>
+                  <p class="demo-overlay-sub">Risk Triage App · Streamlit</p>
+                  <a href="https://triage-predictor.streamlit.app/"
+                     target="_blank" rel="noopener"
+                     class="btn btn-primary demo-launch-btn">
+                    Launch App <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75em;"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
