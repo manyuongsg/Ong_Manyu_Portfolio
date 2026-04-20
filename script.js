@@ -43,8 +43,8 @@ if (typedEl) {
   const phrases = [
     'Data Analyst',
     'Python & SQL Developer',
-    'Power BI Specialist',
-    'Policy & Data Translator',
+    'Power BI and Tableau Specialist',
+    'Turning Complex Data Into Social Impact',
   ];
   let pi = 0, ci = 0, deleting = false;
 
@@ -106,6 +106,16 @@ document.querySelectorAll(
   el.classList.add('reveal');
   el.style.transitionDelay = `${(i % 5) * 70}ms`;
   revealObserver.observe(el);
+});
+
+/* =============================================
+   DEMO EMBED — auto-hide placeholder when src is set
+============================================= */
+document.querySelectorAll('.demo-frame').forEach(frame => {
+  const src = frame.getAttribute('src');
+  if (src && src !== 'about:blank' && src.trim() !== '') {
+    frame.closest('.demo-frame-wrapper').classList.add('has-src');
+  }
 });
 
 /* =============================================
