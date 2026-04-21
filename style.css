@@ -769,17 +769,18 @@ section.alt { background: var(--bg-surface); }
 ============================================= */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.25rem;
 }
 .contact-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.4rem 1.5rem;
+  padding: 1.75rem 2rem;
+  min-height: 96px;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
   color: var(--text);
 }
@@ -790,8 +791,8 @@ section.alt { background: var(--bg-surface); }
 }
 .contact-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -799,10 +800,10 @@ section.alt { background: var(--bg-surface); }
   border: 1px solid rgba(184,169,255,0.22);
   border-radius: 12px;
   color: var(--accent);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
-.contact-label { font-family: 'Orbitron', sans-serif; font-size: 0.58rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.15rem; }
-.contact-value { font-size: 0.93rem; font-weight: 600; color: var(--text); font-family: 'Rajdhani', sans-serif; }
+.contact-label { font-family: 'Orbitron', sans-serif; font-size: 0.58rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.2rem; }
+.contact-value { font-size: 1rem; font-weight: 600; color: var(--text); font-family: 'Rajdhani', sans-serif; }
 .contact-card:hover .contact-value { color: var(--accent); }
 
 .contact-cta {
