@@ -5,17 +5,17 @@
 
 :root {
   --bg:          #0a0a14;
-  --bg-surface:  #646489;
+  --bg-surface:  #0f0f1e;
   --bg-card:     #141428;
   --border:      #252548;
   --border-hover:#5a3a9a;
   --accent:      #b8a9ff;
   --accent-glow: rgba(184,169,255,0.13);
   --accent2:     #ff9ed8;
-  --accent-grad: linear-gradient(135deg, #b8a9ff, #ff9ed8);
+  --accent-grad: linear-gradient(135deg, #a993ff, #ff94df);
   --text:        #e8e4f8;
   --text-muted:  #9585c4;
-  --text-dim:    #554a7a;
+  --text-dim:    #8879b3;
   --radius:      12px;
   --shadow:      0 8px 32px rgba(0,0,0,0.7);
   --transition:  0.22s ease;
